@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Playing with P5</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.7/p5.min.js"></script>
+  </head>
+  <body>
+
+
+    <script>
+    function setup() {
+      createCanvas(700, 700);
+      rectMode(CENTER); //draw rectangle from center instead of top corner
+      textAlign(CENTER, CENTER);
+    }
+
+    function draw(){
+      background(0);
+      push();
+      translate(width/2, height/2);
+
+      var scaleFactor = 0.5;
+      var maxLimit = 200;
+      if (frameCount < maxLimit) {
+        var currentScale = map(frameCount, 0, maxLimit, 0, scaleFactor);
+        scale(1.5 + currentScale);
+      } else {
+        scale(1.5 + scaleFactor);
+      }
+
+      strokeWeight(2);
+      stroke(255);
+      fill(0, 0);
+      // positionx, positiony, width, height
+      rect(0, 0, 210, 30);
+
+      fill(255);
+      noStroke();
+      textFont('Arial');
+      text('⟢⟁◢ kim is my name ◣⟁⟣', 0, 0);
+      pop();
+
+    }
+    </script>
+  </body>
+</html>
